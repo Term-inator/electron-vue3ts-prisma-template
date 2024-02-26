@@ -14,11 +14,19 @@ asarUnpack:
 afterSign: build/notarize.js
 win:
   executableName: electron-vue3ts-prisma-template
+  extraResources:
+    - 'database/**/*'
+    - 'node_modules/.prisma/**/*'
+    - 'node_modules/@prisma/client/**/*'
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
+  allowToChangeInstallationDirectory: true
+  oneClick: false
+  menuCategory: false
+  perMachine: false
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:
